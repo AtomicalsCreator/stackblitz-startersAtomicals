@@ -1,5 +1,3 @@
-Below is the updated README.md file that reflects the new updates, features, and functionalities added to your project:
-
 Atomicals Realm and Subrealm Tool
 
 This project is a comprehensive toolkit for managing Atomicals Realms, Subrealms, and PayNames, with additional support for live Bitcoin statistics and various utility features. Built with a user-friendly interface, it allows users to perform key tasks like querying Realms, minting Subrealms, validating PayNames, and more.
