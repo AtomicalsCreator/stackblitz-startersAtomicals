@@ -1,3 +1,21 @@
+import { decodeEnvelope, decodeChunkedPayload } from './atomicalsHelper';
+
+export const verifySubRealmRules = async (subRealmName, witnessScriptChunks) => {
+    try {
+        const envelope = decodeEnvelope(subRealmName);
+
+        const payload = decodeChunkedPayload(witnessScriptChunks);
+
+        return {
+            subRealmName,
+            rules: payload.rules,
+        };
+    } catch (error) {
+        console.error('Error verifying subrealm rules:', error);
+        throw error;
+    }
+};
+
 export const subRealmRules = {
   rules: [
     {
