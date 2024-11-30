@@ -14,6 +14,24 @@
  * @param {string} payName - The PayName to resolve.
  * @returns {string|null} - Returns the wallet address or null if not found.
  */
+
+import { decodeEnvelope } from './atomicalsHelper';
+
+export const validatePayName = (payNameTransaction) => {
+    try {
+        const envelope = decodeEnvelope(payNameTransaction.witnessScript);
+
+        if (!envelope.payload.paynames) {
+            throw new Error('PayName data not found');
+        }
+
+        return envelope.payload.paynames;
+    } catch (error) {
+        console.error('Error validating PayName:', error);
+        throw error;
+    }
+};
+
 export const resolvePayName = async (payName) => {
   const url = 'https://ep.wizz.cash/proxy/blockchain.atomicals.resolve_payname';
   try {
