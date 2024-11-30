@@ -1,5 +1,25 @@
 import axios from 'axios';
 
+import { decodeEnvelope, validateOperation } from './atomicalsHelper';
+import { validOperations } from './constants';
+
+export const queryRealm = async (realmName) => {
+    try {
+        const realmData = await fetchRealmInfo(realmName);
+
+        const envelope = decodeEnvelope(realmData.witnessScript);
+
+        validateOperation(envelope.operation, validOperations);
+
+        return {
+            realmName,
+            metadata: envelope.payload,
+        };
+    } catch (error) {
+        console.error('Error querying realm:', error);
+        throw error;
+    }
+};
 export const checkRealm = async (realmName) => {
     try {
         const response = await axios.post('https://ep.wizz.cash/proxy/blockchain.atomicals.get_realm_info', {
