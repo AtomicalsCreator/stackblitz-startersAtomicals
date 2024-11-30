@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atomicals Realm</title>
+    <title>Atomicals Project</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Atomicals Realm Management</h1>
+        <h1>Atomicals Realm and Subrealm Tool</h1>
     </header>
     <main>
-        <section id="realm-check">
-            <h2>Check Realm Availability</h2>
-            <input type="text" id="realm-name" placeholder="Enter Realm Name">
-            <button id="check-realm">Check</button>
-            <p id="realm-result"></p>
+        <section id="realm-query">
+            <h2>Query Realm</h2>
+            <input type="text" id="realmName" placeholder="Enter Realm Name">
+            <button onclick="checkRealm()">Check Realm</button>
+            <div id="realmResult"></div>
+        </section>
+        <section id="subrealm-rules">
+            <h2>Mint Subrealm</h2>
+            <input type="text" id="subrealmName" placeholder="Enter Subrealm Name">
+            <button onclick="mintSubrealm()">Mint Subrealm</button>
+            <div id="subrealmResult"></div>
+        </section>
+        <section id="payname-validation">
+            <h2>PayName Validation</h2>
+            <input type="text" id="paynameInput" placeholder="Enter PayName (+inbox@realm)">
+            <button onclick="validatePayName()">Validate PayName</button>
+            <div id="paynameResult"></div>
         </section>
         <section id="bitcoin-stats">
-            <h2>Bitcoin Statistics</h2>
-            <p id="price">Price: Loading...</p>
-            <p id="market-cap">Market Cap: Loading...</p>
-            <p id="transactions">Transactions: Loading...</p>
+            <h2>Bitcoin Live Stats</h2>
+            <button onclick="fetchBitcoinStats()">Fetch Stats</button>
+            <div id="bitcoinStats"></div>
         </section>
     </main>
     <script src="script.js"></script>
