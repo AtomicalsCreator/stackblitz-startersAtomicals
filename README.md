@@ -143,5 +143,3 @@ Contact
 For questions or suggestions, reach out at:
 	•	GitHub Issues: Open an Issue
 	•	Email: support@atomicalsrealm.com
-
-Let me know if you’d like me to push this updated README.md to your repository!
