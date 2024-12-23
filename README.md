@@ -84,6 +84,34 @@ Bitcoin Statistics:
 
 	•	View live Bitcoin stats including price, market cap, and sat/vb.
 
+Test the Application
+
+1. Run Electrum Daemon:
+
+./electrum daemon start --signet
+
+
+2. Start Stackblitz Project: Ensure your app connects to the Electrum RPC URL correctly.
+
+
+3. Verify CoinJoin Workflow:
+
+Create a pool and note the Pool ID.
+
+Use the same relay and denomination settings across participants.
+
+Register UTXOs for CoinJoin and confirm transactions on the Bitcoin testnet.
+
+
+---
+
+Deployment Notes
+
+Ensure the Electrum daemon is securely hosted with restricted RPC access.
+
+Use environment variables for sensitive configurations like RPC credentials.
+
+If deploying publicly, consider containerizing your app with Docker for consistent deployment.
 Project Structure
 
 AtomicalsRealm/
