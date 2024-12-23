@@ -5,3 +5,21 @@ export const API_URLS = {
   resolvePayName: 'https://ep.wizz.cash/proxy/blockchain.atomicals.resolve_payname',
   bitcoinStats: 'https://api.coindesk.com/v1/bpi/currentprice/BTC.json',
 };
+const { rpcCall } = require('./services/electrum');
+const PoolManager = require('./PoolManager');
+
+const startElectrum = async () => {
+ try {
+   await rpcCall("daemon.start", []);
+   console.log("Electrum daemon started successfully.");
+ } catch (error) {
+   console.error("Failed to start Electrum daemon.");
+ }
+};
+
+const initApp = () => {
+ startElectrum();
+ document.body.innerHTML = PoolManager();
+};
+
+initApp();
